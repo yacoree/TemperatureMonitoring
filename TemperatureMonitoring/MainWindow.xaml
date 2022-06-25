@@ -1,0 +1,60 @@
+﻿<Window x:Class="TemperatureMonitoring.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemperatureMonitoring"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="350">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Kind of fish" Grid.Row="0" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Maximum allowable storage temperature" Grid.Row="1" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Permissible time for exceeding the maximum temperature" Grid.Row="2" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Minimum allowable storage temperature" Grid.Row="3" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Permissible time for exceeding the minimum temperature" Grid.Row="4" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Permissible time for exceeding the minimum temperature" Grid.Row="5" >
+                <TextBox/>
+            </GroupBox>
+            <GroupBox Header="Permissible time for exceeding the minimum temperature" Grid.Row="6" >
+                <TextBox/>
+            </GroupBox>
+            <Button Grid.Row="9" Content="Load" Click="Button_Click"/>
+        </Grid>
+        
+    </Grid>
+</Window>
