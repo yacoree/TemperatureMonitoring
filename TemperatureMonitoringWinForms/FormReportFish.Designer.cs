@@ -1,7 +1,7 @@
 ﻿
 namespace TemperatureMonitoringWinForms
 {
-    partial class Form1
+    partial class FormReportFish
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@ namespace TemperatureMonitoringWinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReportFish));
             this.tbKindOfFish = new System.Windows.Forms.TextBox();
             this.tbMaxStorageTemperature = new System.Windows.Forms.TextBox();
             this.tbTimeExceededMaxTemperature = new System.Windows.Forms.TextBox();
@@ -41,6 +41,9 @@ namespace TemperatureMonitoringWinForms
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.loadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTemperatureSensorReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadFishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelKindOfFish = new System.Windows.Forms.Label();
             this.labelMaxStorageTemperature = new System.Windows.Forms.Label();
             this.labelTimeExceededMaxTemperature = new System.Windows.Forms.Label();
@@ -64,6 +67,7 @@ namespace TemperatureMonitoringWinForms
             this.tbMaxStorageTemperature.Name = "tbMaxStorageTemperature";
             this.tbMaxStorageTemperature.Size = new System.Drawing.Size(175, 23);
             this.tbMaxStorageTemperature.TabIndex = 1;
+            this.tbMaxStorageTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPress);
             // 
             // tbTimeExceededMaxTemperature
             // 
@@ -71,6 +75,7 @@ namespace TemperatureMonitoringWinForms
             this.tbTimeExceededMaxTemperature.Name = "tbTimeExceededMaxTemperature";
             this.tbTimeExceededMaxTemperature.Size = new System.Drawing.Size(175, 23);
             this.tbTimeExceededMaxTemperature.TabIndex = 2;
+            this.tbTimeExceededMaxTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPress);
             // 
             // tbMinStorageTemperature
             // 
@@ -78,6 +83,7 @@ namespace TemperatureMonitoringWinForms
             this.tbMinStorageTemperature.Name = "tbMinStorageTemperature";
             this.tbMinStorageTemperature.Size = new System.Drawing.Size(175, 23);
             this.tbMinStorageTemperature.TabIndex = 3;
+            this.tbMinStorageTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPress);
             // 
             // tbTimeExceededMinTemperature
             // 
@@ -85,6 +91,7 @@ namespace TemperatureMonitoringWinForms
             this.tbTimeExceededMinTemperature.Name = "tbTimeExceededMinTemperature";
             this.tbTimeExceededMinTemperature.Size = new System.Drawing.Size(175, 23);
             this.tbTimeExceededMinTemperature.TabIndex = 4;
+            this.tbTimeExceededMinTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPress);
             // 
             // tbDate
             // 
@@ -92,6 +99,7 @@ namespace TemperatureMonitoringWinForms
             this.tbDate.Name = "tbDate";
             this.tbDate.Size = new System.Drawing.Size(175, 23);
             this.tbDate.TabIndex = 5;
+            this.tbDate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPresstemperature);
             // 
             // tbTemperature
             // 
@@ -100,6 +108,7 @@ namespace TemperatureMonitoringWinForms
             this.tbTemperature.Name = "tbTemperature";
             this.tbTemperature.Size = new System.Drawing.Size(175, 50);
             this.tbTemperature.TabIndex = 6;
+            this.tbTemperature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbKeyPresstemperature);
             // 
             // btnGetReport
             // 
@@ -125,7 +134,10 @@ namespace TemperatureMonitoringWinForms
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.loadToolStripMenuItem});
+            this.loadToolStripMenuItem,
+            this.saveTemperatureSensorReportToolStripMenuItem,
+            this.saveFishToolStripMenuItem,
+            this.loadFishToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -138,6 +150,27 @@ namespace TemperatureMonitoringWinForms
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
             this.loadToolStripMenuItem.Text = "Load temperature sensor report ";
             this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
+            // 
+            // saveTemperatureSensorReportToolStripMenuItem
+            // 
+            this.saveTemperatureSensorReportToolStripMenuItem.Name = "saveTemperatureSensorReportToolStripMenuItem";
+            this.saveTemperatureSensorReportToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.saveTemperatureSensorReportToolStripMenuItem.Text = "Save temperature sensor report ";
+            this.saveTemperatureSensorReportToolStripMenuItem.Click += new System.EventHandler(this.saveTemperatureSensorReportToolStripMenuItem_Click);
+            // 
+            // saveFishToolStripMenuItem
+            // 
+            this.saveFishToolStripMenuItem.Name = "saveFishToolStripMenuItem";
+            this.saveFishToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.saveFishToolStripMenuItem.Text = "Save fish";
+            this.saveFishToolStripMenuItem.Click += new System.EventHandler(this.saveFishToolStripMenuItem_Click);
+            // 
+            // loadFishToolStripMenuItem
+            // 
+            this.loadFishToolStripMenuItem.Name = "loadFishToolStripMenuItem";
+            this.loadFishToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
+            this.loadFishToolStripMenuItem.Text = "Load fish";
+            this.loadFishToolStripMenuItem.Click += new System.EventHandler(this.loadFishToolStripMenuItem_Click);
             // 
             // labelKindOfFish
             // 
@@ -202,7 +235,7 @@ namespace TemperatureMonitoringWinForms
             this.labelTemperature.TabIndex = 16;
             this.labelTemperature.Text = "Temperature";
             // 
-            // Form1
+            // FormReportFish
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -223,8 +256,8 @@ namespace TemperatureMonitoringWinForms
             this.Controls.Add(this.tbTimeExceededMaxTemperature);
             this.Controls.Add(this.tbMaxStorageTemperature);
             this.Controls.Add(this.tbKindOfFish);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "FormReportFish";
+            this.Text = "Report fish";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -252,6 +285,9 @@ namespace TemperatureMonitoringWinForms
         private System.Windows.Forms.Label labelMinStorageTemperature;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Label labelTemperature;
+        private System.Windows.Forms.ToolStripMenuItem saveTemperatureSensorReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveFishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loadFishToolStripMenuItem;
     }
 }
 
