@@ -56,9 +56,8 @@ namespace TemperatureMonitoring
             if (currentViolationMaxTem > TimeExceededMaxTemperature || currentViolationMinTem > TimeExceededMinTemperature)
             {
                 int time = currentViolationMaxTem > TimeExceededMaxTemperature ? currentViolationMaxTem : currentViolationMinTem;
-                string timeout = time > 60 ?  $"{time / 60} часа {time - (time % 60)}" : $"{time}";
                 string MinMax = currentViolationMaxTem > TimeExceededMaxTemperature ? "максимально" : "минимально";
-                res += $"Порог {MinMax} допустимой температуры превышен на {timeout} минут.\n";
+                res += $"Порог {MinMax} допустимой температуры превышен на {time} минут.\n";
                 res += $"Время\t\t\t Факт\t Норма\t Отклонение\n";
                 res += currentViolationMaxTem > TimeExceededMaxTemperature ? resMax : resMin; 
             }

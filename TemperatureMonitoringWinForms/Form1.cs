@@ -76,12 +76,37 @@ namespace TemperatureMonitoringWinForms
                             MessageBox.Show(ex.Message);
                         }
                     }
-                    MessageBox.Show(i);
+                    MessageBox.Show("Условия хранения не соблюдены\n" + i);
+                }
+                else 
+                {
+                    MessageBox.Show("Условия хранения соблюдены\n");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    using StreamReader sw = new StreamReader(openFileDialog.FileName, false);
+                    var date = sw.ReadLine();
+                    var temperatures = sw.ReadLine();
+                    tsReport = new TemperatureSensorReport(date, temperatures);
+                    tbTemperature.Text = temperatures;
+                    tbDate.Text = date;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
