@@ -40,5 +40,49 @@ namespace TemperatureMonitoringWinForms
                 }
             }
         }
+
+        private void btnGetReport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Fish fish;
+                string kindOfFish = tbKindOfFish.Text;
+                int maxStorageTemperature = Int32.Parse(tbMaxStorageTemperature.Text);
+                int timeExceededMaxTemperature = Int32.Parse(tbTimeExceededMaxTemperature.Text);
+                if ((tbMinStorageTemperature.Text == "") || (tbTimeExceededMinTemperature.Text == ""))
+                {
+                    fish = new Fish(kindOfFish, maxStorageTemperature, timeExceededMaxTemperature);
+                }
+                else 
+                {
+                    int minStorageTemperature = Int32.Parse(tbMinStorageTemperature.Text);
+                    int timeExceededMinTemperature = Int32.Parse(tbTimeExceededMinTemperature.Text);
+                    fish = new Fish(kindOfFish, maxStorageTemperature, timeExceededMaxTemperature,
+                        minStorageTemperature, timeExceededMinTemperature);
+                }
+                var i = fish.CreateREport(tsReport);
+                if (i != "")
+                {
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        try
+                        {
+                            using StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false);
+                            sw.Write(i);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    MessageBox.Show(i);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

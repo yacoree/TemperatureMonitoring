@@ -37,6 +37,7 @@ namespace TemperatureMonitoringWinForms
             this.tbDate = new System.Windows.Forms.TextBox();
             this.tbTemperature = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnGetReport = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbKindOfFish
@@ -98,11 +99,22 @@ namespace TemperatureMonitoringWinForms
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnGetReport
+            // 
+            this.btnGetReport.Location = new System.Drawing.Point(541, 392);
+            this.btnGetReport.Name = "btnGetReport";
+            this.btnGetReport.Size = new System.Drawing.Size(75, 23);
+            this.btnGetReport.TabIndex = 8;
+            this.btnGetReport.Text = "button2";
+            this.btnGetReport.UseVisualStyleBackColor = true;
+            this.btnGetReport.Click += new System.EventHandler(this.btnGetReport_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGetReport);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbTemperature);
             this.Controls.Add(this.tbDate);
@@ -128,6 +140,7 @@ namespace TemperatureMonitoringWinForms
         private System.Windows.Forms.TextBox tbDate;
         private System.Windows.Forms.TextBox tbTemperature;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGetReport;
     }
 }
 
